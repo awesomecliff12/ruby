@@ -1,0 +1,19 @@
+require 'mail'
+Mail.defaults do
+  delivery_method :smtp, { 
+  :address              => "smtp-mail.outlook.com",
+  :port                 => 587,
+  :domain               => 'outlook.com',
+  :user_name            => '<cliffzhang2008@outlook.com>',
+  :password             => '<Cz20081018>',
+  :authentication       => 'login',
+  :enable_starttls_auto => true  }
+end
+mail = Mail.new do
+  to 'boris.zhang@telus.com'
+  from 'cliffzhang2008@outlook.com'
+  subject 'testing sendmail'
+  body 'testing sendmail'
+end
+
+mail.deliver!
